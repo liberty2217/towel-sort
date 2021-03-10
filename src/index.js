@@ -2,10 +2,20 @@
 // You should implement your task here.
 
 module.exports = function towelSort(matrix) {
-  if (!Array.isArray(matrix)) {return [];}
+  
+  if (matrix == undefined || matrix.length == 0) return [];
+
+  let mainArr = [];
+
+  for (let i = 1; i < matrix.length; i = i + 2) {
+    matrix[i].reverse();
+  }
+  // change all even array indexes to their reverse verison
+
 
   for (let i = 0; i < matrix.length; i++) {
-      if (i % 2)  {matrix[i].reverse();}        
-  }
-  return matrix.flat();
+    mainArr = mainArr.concat(matrix[i]);
+  };
+  
+  return mainArr;
 };
